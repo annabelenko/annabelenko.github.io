@@ -1,5 +1,5 @@
 let img = new Image();
-img.src = 'https://opengameart.org/sites/default/files/Green-Cap-Character-16x18.png';
+img.src = '/Users/annabelenko/Documents/GitHub/annabelenko.github.io/pixel_character_pale_red.png';
 img.onload = function() {
   init();
 };
@@ -7,32 +7,38 @@ img.onload = function() {
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 
-const scale = 2;
-const width = 16;
-const height = 18;
-const scaledWidth = scale * width;
-const scaledHeight = scale * height;
-
-function drawFrame(frameX, frameY, canvasX, canvasY) {
-  ctx.drawImage(img,
-                frameX * width, frameY * height, width, height,
-                canvasX, canvasY, scaledWidth, scaledHeight);
-}
-
 function init() {
-  window.requestAnimationFrame(step);
-}
-window.requestAnimationFrame(step);
+  const scale = 2;
+  const width = 50;
+  const height = 50;
+  const scaledWidth = scale * width;
+  const scaledHeight = scale * height;
 
-const cycleLoop = [0, 1, 0, 2];
-let currentLoopIndex = 0;
-
-function step() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawFrame(cycleLoop[currentLoopIndex], 0, 0, 0);
-  currentLoopIndex++;
-  if (currentLoopIndex >= cycleLoop.length) {
-    currentLoopIndex = 0;
+  function drawFrame(frameIndex, canvasX, canvasY) {
+    const frameX = frameIndex * width; // Calculate the x position of the frame on the sprite sheet
+    ctx.drawImage(img, frameX, 240, width, height, canvasX, canvasY, scaledWidth, scaledHeight);
   }
-  window.requestAnimationFrame(step);
+
+  const cycleLoop = [0, 1, 2]; // Define your frame sequence here
+  let currentLoopIndex = 0;
+  let frameCount = 0;
+  let fps = 5; // Frames per second
+  let fpsInterval = 1000 / fps;
+  let then = Date.now();
+
+  function step() {
+    requestAnimationFrame(step);
+    let now = Date.now();
+    let elapsed = now - then;
+
+    // Ensure we only update the frame at the desired fps
+    if (elapsed > fpsInterval) {
+      then = now - (elapsed % fpsInterval);
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+      drawFrame(cycleLoop[currentLoopIndex], 0, 0); // Draw the current frame
+      currentLoopIndex = (currentLoopIndex + 1) % cycleLoop.length; // Move to the next frame
+    }
+  }
+
+
 }
