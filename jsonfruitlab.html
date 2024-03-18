@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruit Sales Chart</title>
+</head>
+<body>
+    <canvas id="fruitChart" width="600" height="600"></canvas>
+    <script>
+        var fruit = [
+            {name:"Apple", quantity:20, color:"#FF0000"}, // red
+            {name:"Orange", quantity:10, color:"#FFA500"}, // orange
+            {name:"Banana", quantity:15, color:"#FFFF00"}, // yellow
+            {name:"Kiwi", quantity:5, color:"#8F9779"}, // kiwi green
+            {name:"Blueberry", quantity:5, color:"#4F86F7"}, // blueberry blue
+            {name:"Grapes", quantity:10, color:"#6F2DA8"} // grape purple
+        ];
+
+        var canvas = document.getElementById('fruitChart');
+        var ctx = canvas.getContext('2d');
+
+        var x = 50; // Starting X position
+        var y = 30; // Starting Y position
+        var width = 500; // Maximum width of a bar
+        var height = 50; // Height of each bar
+        var gap = 30; // Gap between each bar
+
+        fruit.forEach(function(f) {
+            ctx.fillStyle = f.color; // Set the fill color to the fruit's color
+            ctx.fillRect(x, y, f.quantity * 30, height); // Draw the bar
+
+            ctx.fillStyle = '#000'; // Set the fill color to black for the text
+            ctx.fillText(f.name + " (" + f.quantity + ")", x, y - 5); // Draw the fruit name and quantity
+
+            y += height + gap; // Increment y position for the next bar
+        });
+    </script>
+</body>
+</html>
