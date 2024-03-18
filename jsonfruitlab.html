@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>Fruit Sales Chart</title>
-</head>
-<h4><a href="https://annabelenko.github.io/">Main Page</a></h4>
+    <h1>JSON Fruit Lab</h1>
 
+</head>
 <body>
-    <canvas id="fruitChart" width="600" height="600"></canvas>
+    <canvas id="fruitChart" width="600" height="550"></canvas>
     <script>
         var fruit = [
             {name:"Apple", quantity:20, color:"#FF0000"}, // red
@@ -20,7 +20,7 @@
         var canvas = document.getElementById('fruitChart');
         var ctx = canvas.getContext('2d');
 
-        var x = 50; // Starting X position
+        var x = 100; // Starting X position
         var y = 30; // Starting Y position
         var width = 500; // Maximum width of a bar
         var height = 50; // Height of each bar
@@ -35,13 +35,10 @@
 
             y += height + gap; // Increment y position for the next bar
         });
-        <h4>Visit the <a href="https://github.com/annabelenko/annabelenko.github.io/blob/main/jsonfruitlab.html
-">codee</a>!</h4>
-
-
-
-
-
     </script>
+            <h4>Visit the <a href="https://github.com/annabelenko/annabelenko.github.io/blob/main/jsonfruitlab.html
+                ">code</a>!</h4>
+            <h4><a href="https://annabelenko.github.io/">Main Page</a></h4>
+
 </body>
 </html>
