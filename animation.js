@@ -1,15 +1,14 @@
 let img = new Image();
 img.src = 'pixel_character_pale_red.png';
 img.onload = function() {
+  ctx.font = '20px Arial';
   // Display text for 3 seconds before starting the animation
-  ctx.fillText('Hey! Run away before ', 100, 300); // Display text immediately
+  ctx.fillText('Hey! Run away before uhh....', 10, 100); // Display text immediately
   setTimeout(init, 3000); // Wait for 3 seconds before starting animation
 };
 
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
-
-ctx.fillText('Hey Peppa Pig', 100, 300);
 
 function init() {
   const scale = 2;
