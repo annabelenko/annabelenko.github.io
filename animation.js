@@ -1,7 +1,10 @@
 let img = new Image();
-img.src = '/Users/annabelenko/Documents/GitHub/annabelenko.github.io/pixel_character_pale_red.png';
+img.src = 'pixel_character_pale_red.png';
 img.onload = function() {
-  init();
+  ctx.font = '20px Arial';
+  // Display text for 3 seconds before starting the animation
+  ctx.fillText('Hey! Run away before uhh....', 10, 100); // Display text immediately
+  setTimeout(init, 3000); // Wait for 3 seconds before starting animation
 };
 
 let canvas = document.querySelector('canvas');
@@ -22,9 +25,11 @@ function init() {
   const cycleLoop = [0, 1, 2]; // Define your frame sequence here
   let currentLoopIndex = 0;
   let frameCount = 0;
-  let fps = 5; // Frames per second
-  let fpsInterval = 1000 / fps;
+  const fps = 5; // Frames per second
+  const fpsInterval = 1000 / fps;
   let then = Date.now();
+  const duration = 20; // Animation duration in seconds
+  const totalFrames = duration * fps; // Total number of frames for 20 seconds
 
   function step() {
     requestAnimationFrame(step);
@@ -37,8 +42,14 @@ function init() {
       ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
       drawFrame(cycleLoop[currentLoopIndex], 0, 0); // Draw the current frame
       currentLoopIndex = (currentLoopIndex + 1) % cycleLoop.length; // Move to the next frame
+      frameCount++; // Increment the frame count
+
+      if (frameCount >= totalFrames) {
+        cancelAnimationFrame(requestAnimationFrame(step)); // Stop the animation after 20 seconds
+        return; // Exit the function
+      }
     }
   }
 
-
+  step(); // Start the animation
 }
