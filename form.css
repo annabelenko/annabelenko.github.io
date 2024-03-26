@@ -1,38 +1,129 @@
-body {
-    font-family: 'Arial', sans-serif;
+:root {
+    --blue: #007bff;
+    --blue-hover: #0056b3;
+    --input-bg: #f7f7f7;
+    --input-border: #ced4da;
+    --grey-text: #6c757d;
+    --font-family: 'Arial', sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: var(--font-family);
+    background-image: url('space.png'); /* Corrected this line */
+    background-size: cover; /* Add this to ensure it covers the whole area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Corrected this line */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url('space.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: grid;
-    place-items: center;
   }
   
-  #converter {
-    width: 15rem;
+  
+  .form-container {
+    background: #fff; /* White background for the container */
     padding: 2rem;
-    border-radius: .5rem;
-    box-shadow: 0 0 2rem 0 #0001;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5), /* Soft white outer glow */
+                 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle gray shadow for depth */
+    width: 100%;
+    max-width: 22rem;
+    margin: auto; /* Center the container in the available space */
+    position: relative; /* For the shadow to show properly */
+    z-index: 1; /* To ensure it's above other elements if needed */
   }
   
-  #converter input, #converter select {
-    font-family: inherit;
-    font-size: inherit;
-    margin-block-end: 1rem;
+  .form-background {
+    background: rgba(255, 255, 255, 0.95); /* White with slight transparency */
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5), /* Soft white outer glow */
+                 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle gray shadow for depth */
+    width: 100%;
+    max-width: 22rem;
+    margin: auto; /* Center the container in the available space */
+    position: relative; /* For the shadow to show properly */
+    z-index: 1; /* To ensure it's above other elements if needed */
+  }
+  
+  
+  .form-header {
     text-align: center;
-    width: 10rem;
+    margin-bottom: 2rem;
   }
   
-  #converter #output-temp {
-    font-size: 2rem;
+  .form-header h1 {
+    margin: 0;
+    color: var(--blue);
+  }
+  
+  input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: .25rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  button {
+    width: 100%;
+    background-color: var(--blue);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: .25rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: var(--blue-hover);
+  }
+  
+  .form-footer {
+    text-align: center;
+    color: var(--grey-text);
+  }
+  
+  .form-footer a {
+    color: var(--blue);
+    text-decoration: none;
     font-weight: bold;
   }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .social-buttons a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin: 0 0.25rem;
+    background-color: var(--input-bg);
+    border-radius: .25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .social-buttons a img {
+    width: 20px;
+    height: 20px;
+  }
+  

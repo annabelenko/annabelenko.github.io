@@ -1,42 +1,66 @@
-const inputField = document.getElementById('input-temp');
-const fromUnitField = document.getElementById('input-unit');
-const toUnitField = document.getElementById('output-unit');
-const outputField = document.getElementById('output-temp');
-const form = document.getElementById('converter');
-
-function convertTemp(value, fromUnit, toUnit) {
-  if (fromUnit === 'c') {
-    if (toUnit === 'f') {
-      return value * 9 / 5 + 32;
-    } else if (toUnit === 'k') {
-      return value + 273.15;
+document.addEventListener('DOMContentLoaded', function() {
+    const inputField = document.getElementById('input-weight');
+    const planetField = document.getElementById('planet');
+    const outputField = document.getElementById('output-weight');
+    const form = document.getElementById('weight-converter');
+  
+    const gravityFactors = {
+      Mercury: 0.38,
+      Venus: 0.91,
+      Earth: 1,
+      Mars: 0.38,
+      Jupiter: 2.34,
+      Saturn: 1.06,
+      Uranus: 0.92,
+      Neptune: 1.19
+    };
+  
+    function convertWeight(weight, planet) {
+      return weight * gravityFactors[planet];
     }
-    return value;
-  }
-  if (fromUnit === 'f') {
-    if (toUnit === 'c') {
-      return (value - 32) * 5 / 9;
-    } else if (toUnit === 'k') {
-      return (value + 459.67) * 5 / 9;
+  
+    form.addEventListener('input', () => {
+      const inputWeight = parseFloat(inputField.value);
+      const planet = planetField.value;
+  
+      const outputWeight = convertWeight(inputWeight, planet);
+      outputField.value = `Your weight on ${planet} is ${outputWeight.toFixed(2)} kg`;
+    });
+  });
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Elements
+    const inputField = document.getElementById('input-weight');
+    const planetField = document.getElementById('planet');
+    const resetButton = document.getElementById('reset-button');
+  
+    // Event to save data on input change
+    inputField.addEventListener('input', () => {
+      localStorage.setItem('inputWeight', inputField.value);
+    });
+  
+    planetField.addEventListener('change', () => {
+      localStorage.setItem('selectedPlanet', planetField.value);
+    });
+  
+    // Load any saved data from localStorage
+    if (localStorage.getItem('inputWeight')) {
+      inputField.value = localStorage.getItem('inputWeight');
     }
-    return value;
-  }
-  if (fromUnit === 'k') {
-    if (toUnit === 'c') {
-      return value - 273.15;
-    } else if (toUnit === 'f') {
-      return value * 9 / 5 - 459.67;
+  
+    if (localStorage.getItem('selectedPlanet')) {
+      planetField.value = localStorage.getItem('selectedPlanet');
     }
-    return value;
-  }
-  throw new Error('Invalid unit');
-}
-
-form.addEventListener('input', () => {
-  const inputTemp = parseFloat(inputField.value);
-  const fromUnit = fromUnitField.value;
-  const toUnit = toUnitField.value;
-
-  const outputTemp = convertTemp(inputTemp, fromUnit, toUnit);
-  outputField.value = (Math.round(outputTemp * 100) / 100) + ' ' + toUnit.toUpperCase();
-});
+  
+    // Reset button event listener
+    resetButton.addEventListener('click', () => {
+      // Clear the local storage
+      localStorage.removeItem('inputWeight');
+      localStorage.removeItem('selectedPlanet');
+  
+      // Reset the form fields
+      inputField.value = '';
+      planetField.selectedIndex = 0; // Resets to the first option
+    });
+  });
+  
+  

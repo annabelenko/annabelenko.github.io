@@ -1,17 +1,18 @@
 {
     "lang": "en-us",
-    "name": "Temperature converter app",
-    "short_name": "Temperature converter",
-    "description": "A basic temperature converter application that can convert to and from Celsius, Kelvin, and Fahrenheit",
+    "name": "Planet Weight Converter",
+    "short_name": "Planet Weight Converter",
+    "description": "A basic application that can calculate your weight on different planets",
     "start_url": "/",
     "background_color": "#2f3d58",
     "theme_color": "#2f3d58",
     "orientation": "any",
     "display": "standalone",
     "icons": [
-        {
-            "src": "/icon512.png",
-            "sizes": "512x512"
-        }
+      {
+        "src": "/icon512.png",
+        "sizes": "512x512"
+      }
     ]
-}
+  }
+  
