@@ -1,5 +1,5 @@
 let img = new Image();
-img.src = 'pixel_character_pale_red.png';
+img.src = 'pixel_character_pale_red.png'; //Image source
 img.onload = function() {
   ctx.font = '20px Arial';
   // Display text for 3 seconds before starting the animation
