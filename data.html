@@ -2,18 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fruit Sales Visualization</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Chart.js Visualization</title>
 </head>
 <body>
-    <h1>Data Visualization Page</h1>
+    <canvas id="doughnut-chart"></canvas>
+    <canvas id="horizontal-bar-chart"></canvas>
 
-    <div>
+    <script>
+        // Doughnut Chart
+        new Chart(document.getElementById("doughnut-chart"), {
+            type: 'doughnut',
+            data: {
+                labels: ["Apples", "Bananas", "Oranges", "Grapes", "Strawberries"],
+                datasets: [
+                    {
+                        label: "Fruit Sales",
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        data: [120, 150, 100, 80, 90]
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Fruit Sales in a Week (units)'
+                }
+            }
+        });
 
-        <canvas id="doughnutChart" width="400" height="400"></canvas>
-        <canvas id="barChart" width="400" height="200"></canvas>
-    </div>
-
-    <script src="data.js"></script>
+        // Horizontal Bar Chart
+        new Chart(document.getElementById("horizontal-bar-chart"), {
+            type: 'horizontalBar',
+            data: {
+                labels: ["Apples", "Bananas", "Oranges", "Grapes", "Strawberries"],
+                datasets: [
+                    {
+                        label: "Fruit Sales",
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        data: [120, 150, 100, 80, 90]
+                    }
+                ]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Fruit Sales in a Week (units)'
+                }
+            }
+        });
+    </script>
 </body>
 </html>
