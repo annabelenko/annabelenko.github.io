@@ -37,7 +37,27 @@
 <br><br>
 <center><button class="button" onclick="pauseAudio()">Pause Audio</button></center>
 
-<script src="audio.js"></script>
+<script>
+
+var currentAudio = null; // Keep track of the current playing audio
+
+function playSound(soundId) {
+  // If there's any audio playing, pause it first
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+
+  // Create a new Audio object and play it
+  currentAudio = new Audio(`${soundId}.mp3`);
+  currentAudio.play();
+}
+
+function pauseAudio() {
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+}
+</script>
 
 <h4><a href="https://annabelenko.github.io/">Main Page</a></h4>
 
@@ -45,7 +65,6 @@
 
 
 <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fannabelenko%2Fannabelenko.github.io%2Fblob%2Fmain%2Faudio.html&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
-<script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fannabelenko%2Fannabelenko.github.io%2Fblob%2Fmain%2Faudio.js&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
 </body>
 
 
