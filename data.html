@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chart.js Visualization</title>
+    <title>Data Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
+    <h1>Data Visualization Page</h1>
+    <h4><a href="https://annabelenko.github.io/">Main Page</a></h4>
+
+    <h4><a href="https://github.com/annabelenko/annabelenko.github.io/blob/main/data.html">View the code on Github</a></h4>
+
     <canvas id="doughnut-chart"></canvas>
     <canvas id="horizontal-bar-chart"></canvas>
 
@@ -16,7 +23,7 @@
                 labels: ["Apples", "Bananas", "Oranges", "Grapes", "Strawberries"],
                 datasets: [
                     {
-                        label: "Fruit Sales",
+                        label: "Fruit Sales by Anna",
                         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
                         data: [120, 150, 100, 80, 90]
                     }
@@ -25,32 +32,33 @@
             options: {
                 title: {
                     display: true,
-                    text: 'Fruit Sales in a Week (units)'
+                    text: 'Fruit Sales in a Week (units) - By Anna Belenko'
                 }
             }
         });
 
         // Horizontal Bar Chart
         new Chart(document.getElementById("horizontal-bar-chart"), {
-            type: 'horizontalBar',
+            type: 'bar', // Changed from 'horizontalBar' to 'bar'
             data: {
                 labels: ["Apples", "Bananas", "Oranges", "Grapes", "Strawberries"],
-                datasets: [
-                    {
-                        label: "Fruit Sales",
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                        data: [120, 150, 100, 80, 90]
-                    }
-                ]
+                datasets: [{
+                    label: "Fruit Sales by Anna",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                    data: [120, 150, 100, 80, 90]
+                }]
             },
             options: {
+                indexAxis: 'y', // This makes the bar chart horizontal
                 legend: { display: false },
                 title: {
                     display: true,
-                    text: 'Fruit Sales in a Week (units)'
+                    text: 'Fruit Sales in a Week (units) - By Anna Belenko'
                 }
             }
         });
+
     </script>
+    <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fannabelenko%2Fannabelenko.github.io%2Fblob%2Fmain%2Fdata.html&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
 </body>
 </html>
