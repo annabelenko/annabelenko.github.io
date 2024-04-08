@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sound Machine</title>
+<h1>Audio Lab</h1>
+<style>
+  .sound-machine {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+  }
+  .button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #008CBA;
+    color: white;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+    
+<div class="sound-machine">
+  <button class="button" onclick="playSound('sound1')">Sound 1</button>
+  <button class="button" onclick="playSound('sound2')">Sound 2</button>
+  <button class="button" onclick="playSound('sound3')">Sound 3</button>
+</div>
+<br><br>
+<center><button class="button" onclick="pauseAudio()">Pause Audio</button></center>
+
+<script src="audio.js"></script>
+</body>
+</html>
