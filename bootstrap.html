@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Simple Bootstrap</title>
+    <title>Bootstrap Grid Layout Example</title>
 </head>
 <body>
     <div class="container">
-        <h1>Bootstrap Grid Page</h1>
-        <p>This is a simple demo showing off the Bootstrap's grid layout capabilities!!!</p>
+        <h1 class="text-center">Example of Bootstrap Grid</h1>
+        <p class="text-muted">This example demonstrates a different layout using Bootstrap's grid system.</p>
+        
+        <!-- First row with two columns -->
         <div class="row">
-            <div class="col-md-4" style="background-color: lavender;">Column 1</div>
-            <div class="col-md-4" style="background-color: lavenderblush;">Column 2</div>
-            <div class="col-md-4" style="background-color: lightcyan;">Column 3</div>
+            <div class="col-md-8" style="background-color: lightseagreen;">Large Column</div>
+            <div class="col-md-4" style="background-color: lightsteelblue;">Smaller Column</div>
         </div>
+        
+        <!-- Second row with three columns -->
         <div class="row">
-            <div class="col-md-6" style="background-color: lightblue;">Column 4</div>
-            <div class="col-md-6" style="background-color: lightcoral;">Column 5</div>
+            <div class="col-md-4" style="background-color: lightcoral;">Left Column</div>
+            <div class="col-md-4" style="background-color: lightsalmon;">Middle Column</div>
+            <div class="col-md-4" style="background-color: lightgoldenrodyellow;">Right Column</div>
         </div>
     </div>
+    
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
